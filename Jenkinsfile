@@ -13,8 +13,16 @@ pipeline {
               steps {
                   echo "PHP Unit Test"
               }
+              post {
+                  always {
+                      echo 'Here we analyze the output from PHP unit.'
+                  }
+              }
           }
           stage('PHP Fuzzing') {
+              when {
+                branch 'master'
+              }
               steps {
                   echo "Fuzzing"
               }
