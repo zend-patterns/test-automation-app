@@ -72,6 +72,7 @@
     "filp/whoops": "^2.1.12",
     "friendsofphp/php-cs-fixer": "^2.15",
     "phpunit/phpunit": "^7.0.1",
+    "nikic/php-fuzzer": "dev-master",
     "roave/security-advisories": "dev-master",
     "squizlabs/php_codesniffer": "^2.9.1",
     "zendframework/zend-expressive-tooling": "^1.0",
