@@ -4,10 +4,11 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build'
+        sh 'if [ !-e ${env.JENKINS_HOME}/composer.phar ]; then echo "HERE"; fi'
       }
     }
 
-    stage('Tests') {
+    stage('Test') {
       parallel {
           stage('PHP Unit Test') {
               steps {
