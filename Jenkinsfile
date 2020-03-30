@@ -4,35 +4,41 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build'
-        sh 'if [ !-e ${env.JENKINS_HOME}/composer.phar ]; then echo "HERE"; fi'
+        sh '''if [ !-e ${env.JENKINS_HOME}/composer.phar ]; then 
+   echo "HERE"; 
+fi'''
       }
     }
 
     stage('Test') {
       parallel {
-          stage('PHP Unit Test') {
-              steps {
-                  echo "PHP Unit Test"
-              }
-              post {
-                  always {
-                      echo 'Here we analyze the output from PHP unit.'
-                  }
-              }
+        stage('PHP Unit Test') {
+          post {
+            always {
+              echo 'Here we analyze the output from PHP unit.'
+            }
+
           }
-          stage('PHP Fuzzing') {
-              when {
-                branch 'master'
-              }
-              steps {
-                  echo "Fuzzing"
-              }
+          steps {
+            echo 'PHP Unit Test'
           }
-          stage('Integration') {
-                steps {
-                    echo "Integration"
-                }
+        }
+
+        stage('PHP Fuzzing') {
+          when {
+            branch 'master'
           }
+          steps {
+            echo 'Fuzzing'
+          }
+        }
+
+        stage('Integration') {
+          steps {
+            echo 'Integration'
+          }
+        }
+
       }
     }
 
