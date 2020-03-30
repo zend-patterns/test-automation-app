@@ -4,9 +4,14 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build'
-        sh '''if [ !-e ${JENKINS_HOME}/composer.phar ]; then
-   echo "HERE"; 
-fi'''
+        sh '''if [ ! -e "${JENKINS_HOME}/composer.phar" ]; then
+   wget https://getcomposer.org/composer-stable.phar -O "${JENKINS_HOME}/composer.phar"
+else 
+   echo "Reusing composer from [${JENKINS_HOME}]";
+fi
+
+php "${JENKINS_HOME}/composer.phar" install
+'''
       }
     }
 
@@ -20,7 +25,7 @@ fi'''
 
           }
           steps {
-            echo 'PHP Unit Test'
+            sh 'php ${WORKSPACE}/vendor/bin/phpunit ${WORKSPACE}/test'
           }
         }
 
