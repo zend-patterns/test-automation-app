@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build'
-        sh '''if [ !-e ${env.JENKINS_HOME}/composer.phar ]; then 
+        sh '''if [ !-e ${JENKINS_HOME}/composer.phar ]; then
    echo "HERE"; 
 fi'''
       }
