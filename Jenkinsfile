@@ -25,7 +25,7 @@ php "${JENKINS_HOME}/composer.phar" install
 
           }
           steps {
-            sh 'php ${WORKSPACE}/vendor/bin/phpunit ${WORKSPACE}/test'
+            sh 'php ${WORKSPACE}/vendor/bin/phpunit phpunit --log-junit ${WORKSPACE}/results.xml ${WORKSPACE}/test'
           }
         }
 
