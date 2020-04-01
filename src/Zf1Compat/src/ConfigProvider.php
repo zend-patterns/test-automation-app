@@ -34,10 +34,6 @@ class ConfigProvider
         return [
             'factories'  => [
                 PhpRenderer::class => InvokableFactory::class,
-                View\View::class => View\ViewFactory::class,
-
-                // Helpers
-                Helper\Http\RedirectHelper::class => Helper\Http\RedirectHelperFactory::class,
 
                 // middleware
                 Middleware\RequestParamsMiddleware::class => InvokableFactory::class,
@@ -51,7 +47,6 @@ class ConfigProvider
             ],
             'aliases' => [
                 'ViewHelperManager' => HelperPluginManager::class,
-                'Zf1CompatView' => View\View::class,
             ]
         ];
     }
@@ -63,27 +58,10 @@ class ConfigProvider
     {
         return [
             'factories'  => [
-                View\Helper\BaseUrl::class => InvokableFactory::class,
                 View\Helper\FormCheckbox::class => InvokableFactory::class,
-                View\Helper\FormHidden::class => InvokableFactory::class,
-                View\Helper\FormRadio::class => InvokableFactory::class,
-                View\Helper\FormSelect::class => View\Helper\FormSelectFactory::class,
-                View\Helper\FormText::class => InvokableFactory::class,
-                View\Helper\Partial::class => View\Helper\PartialFactory::class,
-                View\Helper\Router::class => InvokableFactory::class,
-                View\Helper\BuildUrl::class => View\Helper\BuildUrlFactory::class,
             ],
             'aliases' => [
-                'baseUrl'   => View\Helper\BaseUrl::class,
                 'formCheckbox'=> View\Helper\FormCheckbox::class,
-                'formHidden' => View\Helper\FormHidden::class,
-                'formRadio' => View\Helper\FormRadio::class,
-                'formSelect'=> View\Helper\FormSelect::class,
-                'formText'=> View\Helper\FormText::class,
-                'partial' => View\Helper\Partial::class,
-                'Partial' => View\Helper\Partial::class,
-                'router'  => View\Helper\Router::class,
-                'buildUrl'     => View\Helper\BuildUrl::class,
             ]
         ];
     }

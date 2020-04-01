@@ -1,2 +1,1 @@
-ZF component that provides compatibility with some Zend Framework 1 components by
-implementing them in Zend Framework 3.
+Zend Framework 1 (ZF1) to Lamina / Zend Framework 3 bridge.
