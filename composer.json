@@ -80,13 +80,9 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/App/src/",
             "Test\\": "test/src",
             "Zf1Compat\\": "src/Zf1Compat/src/"
-        },
-        "files": [
-            "src/App/src/Misc/Functions.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {

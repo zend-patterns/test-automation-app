@@ -1,0 +1,13 @@
+<?php
+
+return [
+    'view_helper_config' => [
+        'formSelect' => [
+            // list of additional valid HTML attributes for the select element that this application is using
+            'additional_attributes' => [
+                'disname',
+                'prev'
+            ]
+        ]
+    ]
+];
