@@ -17,8 +17,9 @@ final class CalculatorTest extends TestCase
         $this->calculator = new Calculator();
     }
 
-    public function testAdd()
+    public function testAdd_Increment_GreaterThan()
     {
-        self::assertEquals(3, $this->calculator->add(2,1));
+        self::assertGreaterThan(2, $this->calculator->add(2,1));
+//        self::assertGreaterThan(9223372036854775807, $this->calculator->add(9223372036854775807,1));
     }
 }
