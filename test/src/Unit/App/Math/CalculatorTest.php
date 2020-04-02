@@ -17,9 +17,21 @@ final class CalculatorTest extends TestCase
         $this->calculator = new Calculator();
     }
 
-    public function testAdd_Increment_GreaterThan()
+    public function dataProvider(): array
     {
-        self::assertGreaterThan(2, $this->calculator->add(2,1));
-//        self::assertGreaterThan(9223372036854775807, $this->calculator->add(9223372036854775807,1));
+        return [
+            [2],
+            [20],
+            [500],
+            [PHP_INT_MAX]
+        ];
+    }
+
+    /**
+     * @dataProvider dataProvider
+     */
+    public function testAdd_Increment_GreaterThan(int $value)
+    {
+        self::assertGreaterThan($value, $this->calculator->add($value, 1));
     }
 }
