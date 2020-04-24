@@ -1,11 +1,5 @@
 pipeline {
   agent any
-
-  parameters {
-     string(name: 'zskey', defaultValue: '', description: 'Zend Server API Key')
-     password(name: 'zssecret', defaultValue: '', description: 'Zend Server API Secret')
-  }
-  
   stages {
     stage('Build') {
       steps {
@@ -55,9 +49,13 @@ php "${JENKINS_HOME}/composer.phar" install
 
     stage('Deploy') {
       steps {
-        echo 'Deploy'
+        echo 'Deploy to staging'
       }
     }
 
+  }
+  parameters {
+    string(name: 'zskey', defaultValue: '', description: 'Zend Server API Key')
+    password(name: 'zssecret', defaultValue: '', description: 'Zend Server API Secret')
   }
 }
