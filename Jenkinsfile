@@ -1,12 +1,10 @@
 pipeline {
   agent any
-  
-  options([
-     parameters([
-        string(name: 'zskey', defaultValue: '', description: 'Zend Server API Key')
-        password(name: 'zssecret', defaultValue: '', description: 'Zend Server API Secret')
-     ])
-  ])
+
+  parameters {
+     string(name: 'zskey', defaultValue: '', description: 'Zend Server API Key')
+     password(name: 'zssecret', defaultValue: '', description: 'Zend Server API Secret')
+  }
   
   stages {
     stage('Build') {
